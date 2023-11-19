@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FortniteLauncher (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FortniteLauncher (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

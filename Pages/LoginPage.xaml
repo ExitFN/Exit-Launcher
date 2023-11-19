@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="FortniteLauncher.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FortniteLauncher.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#202336">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid VerticalAlignment="Center" Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text=" " Style="{ThemeResource TitleLargeTextBlockStyle}" FontWeight="SemiBold" Visibility="Visible"/>
+                    <TextBlock Text="RELIVE THE BEST CHAPTER 2 SEASON 4  " Style="{ThemeResource TitleLargeTextBlockStyle}" FontWeight="SemiBold" Visibility="Collapsed"/>
+                    <TextBlock Text="Exit" Margin="8,0,0,0" Style="{ThemeResource TitleLargeTextBlockStyle}" FontWeight="SemiBold" Visibility="Visible"/>
+                    <TextBlock Text="FORTNITE EXPERIENCE WITH EXIT " Margin="8,0,0,0" Style="{ThemeResource TitleLargeTextBlockStyle}" FontWeight="SemiBold" Visibility="Collapsed"/>
+                    <Image Visibility="Collapsed" x:Name="BannerImg" Stretch="UniformToFill" Loaded="BannerImg_Loaded"/>
+                </StackPanel>
+                <TextBlock Margin="0,16,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Login using your Email and Passsword" FontWeight="Light" Style="{ThemeResource SubtitleTextBlockStyle}" Grid.Row="1"/>
+                <StackPanel VerticalAlignment="Center" Grid.Row="2" Margin="320,24,320,24">
+                    <StackPanel Spacing="4" Margin="0,12,0,0">
+                        <TextBox x:Name="MailBox" Header="Email Address" PlaceholderText="Email"/>
+                        <PasswordBox x:Name="PasswordBox" Header="Password" PlaceholderText="Password" IsPasswordRevealButtonEnabled="True"/>
+                    </StackPanel>
+                    <CheckBox x:Name="RememberMeCheckBox" IsChecked="True" Margin="4" Content="Remember Me"/>
+                    <Button Style="{ThemeResource AccentButtonStyle}" x:Name="LoginBtn"  HorizontalAlignment="Stretch" Grid.Row="3" Margin="0,8,0,0" Content="Login" Click="LoginBtn_Click"/>
+                    <Button x:Name="LoginGuestBtn"  HorizontalAlignment="Stretch" Visibility="Collapsed" Grid.Row="3" Margin="0,8,0,0" Content="Login As Guest" Click="LoginGuestBtn_Click" />
+                    <TextBlock x:Name="UselessStatusBlock" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <InfoBar VerticalAlignment="Center" x:Name="ErrorInfoBar" Severity="Error" Grid.Row="3" Margin="236,16,236,0" Visibility="Collapsed">
+                    <InfoBar.IconSource>
+                        <FontIconSource Glyph="&#xE72E;"/>
+                    </InfoBar.IconSource>
+                </InfoBar>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent">
+            <controls:InAppNotification x:Name="ErrorNotification"
+                                    Content="This is a test message."
+                                    ShowDismissButton="True"
+                                    AnimationDuration="00:00:00.2000000"
+                                    VerticalOffset="55"
+                                    HorizontalOffset="0"
+                                    StackMode="Replace"
+                                    Grid.Row="3"
+                                    Background="#f44336"
+                                        Margin="0,0,0,26"
+                                        CornerRadius="30"
+                                    VerticalAlignment="Bottom">
+                <controls:InAppNotification.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Value}" Margin="0,0,0,8" />
+                            <TextBlock Text="{Binding Key}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity="0.8" />
+                        </StackPanel>
+                    </DataTemplate>
+                </controls:InAppNotification.ContentTemplate>
+            </controls:InAppNotification>
+        </Grid>
+    </Grid>
+</Page>

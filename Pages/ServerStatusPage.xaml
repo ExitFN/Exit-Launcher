@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="FortniteLauncher.Pages.ServerStatusPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FortniteLauncher.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.Labs.WinUI"
+    xmlns:media="using:CommunityToolkit.WinUI.UI.Media"
+    mc:Ignorable="d">
+
+    <Grid Margin="58, 32, 58,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <InfoBar Grid.Row="0" Message="To check the real-time server uptimes and status, join our Discord community. Once inside, navigate to the #status channel where you'll find all the essential updates and details regarding the game server's performance. " IsOpen="True" IsClosable="False" Severity="Informational" Margin="0,0,0,4"/>
+        <StackPanel Grid.Row="1" Spacing="3" VerticalAlignment="Top">
+            <controls:SettingsExpander x:Name="ServicesStatusExpander" IsExpanded="True"
+                                       Header="Exit Server Status">
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard x:Name="BackendStatusCard"
+                                           Header="Backend"
+                                           FontSize="15"
+                                           Description="Unknown">
+                        <controls:SettingsCard.HeaderIcon>
+                            <ImageIcon Source="ms-appx:///Assets\backend.png"/>
+                        </controls:SettingsCard.HeaderIcon>
+                        <InfoBadge x:Name="BackendBadge" Style="{StaticResource InformationalDotInfoBadgeStyle}" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+            <Button Content="Reload" Click="ReloadButton_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="10" Width="75" Height="30" />
+        </StackPanel>
+    </Grid>
+</Page>
